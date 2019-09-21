@@ -470,13 +470,218 @@
                   </v-tab-item>
 
                   <v-tab-item>
-                    <v-layout row pt-3>
+                    <div v-if="variaveis.valid == true">
+                      <v-layout row pt-3>
+                        <v-flex xs4>
+                          <v-text-field
+                            id="nome_nubente"
+                            label="Nome*"
+                            v-model="habilitacao.nome_nubente"
+                            append-icon="fa-pen"
+                            box
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs4 class="mx-3">
+                          <v-text-field
+                            id="nome_de_casado"
+                            v-model="habilitacao.nome_de_casado"
+                            label="Nome de Casado*"
+                            append-icon="fa-pen"
+                            box
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3>
+                          <v-checkbox
+                            class="text-xs-left"
+                            label="Hipossuficiente"
+                            v-model="habilitacao.status_primeiro_nubente"
+                            value="Hipossuficiente"
+                            color="blue"
+                          ></v-checkbox>
+                        </v-flex>
+                        <v-flex xs2 class="">
+                          <v-checkbox
+                            value="Assinatura a Rogo"
+                            v-model="habilitacao.status_primeiro_nubente"
+                            label="Assinatura a Rogo"
+                            color="blue"
+                          ></v-checkbox>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row pt-4>
+                        <v-flex xs4 >
+                          <v-text-field
+                            id="nome_mulher"
+                            label="Nome*"
+                            v-model="habilitacao.proximo_nome_nubente"
+                            append-icon="fa-pen"
+                            box
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs4 class="mx-3">
+                          <v-text-field
+                            id="nome_de_casado_mulher"
+                            v-model="habilitacao.proximo_nome_de_casado"
+                            label="Nome de Casado*"
+                            append-icon="fa-pen"
+                            box
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3 class="">
+                          <v-checkbox 
+                            value="Hipossuficiente"
+                            v-model="habilitacao.status_segundo_nubente"
+                            label="Hipossuficiente"
+                            color="blue"
+                          ></v-checkbox>
+                        </v-flex>
+                        <v-flex xs2>
+                          <v-checkbox
+                            value="Assinatura a Rogo"
+                            v-model="habilitacao.status_segundo_nubente"
+                            color="blue"
+                            label="Assinatura a Rogo"
+                          ></v-checkbox>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout pl-5 pr-5>
+                        <v-divider></v-divider>
+                      </v-layout>
+                      <div class="text-xs-center">
+                        <v-card-text class="px-0">
+                          <span class="subtitulos" >REQUERENTE</span>
+                        </v-card-text>
+                      </div>
+                      <v-layout row pt-3>
+                        <v-flex xs3 >
+                          <v-radio-group v-model="habilitacao.requerente" row>
+                            <v-radio color="blue" label="Nubente" value="Nubente"></v-radio>
+                            <v-radio color="blue" label="Outra Pessoa" value="Outra Pessoa"></v-radio>
+                          </v-radio-group>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row pt-3>
+                        <v-flex xs5>
+                          <v-autocomplete
+                            label="Nome*"
+                            box
+                            v-model="habilitacao.nome_requerente"
+                            :items="habilitacao.nome_nubente"
+                            item-value="value"
+                            item-text="text"
+                            id="nome_requerente"
+                          ></v-autocomplete>
+                        </v-flex>
+                        <v-flex xs3 class="mx-3">
+                          <v-text-field
+                            id="cpf_requerente"
+                            box
+                            v-model="habilitacao.cpf"
+                            mask="###.###.###-##"
+                            hint="Apenas Números"
+                            label="CPF"
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs2>
+                          <v-text-field
+                            id="cep_requerente"
+                            v-model="habilitacao.endereco.cep"
+                            box
+                            clearable
+                            mask="#####-##"
+                            hint="Apenas Números"
+                            label="CEP"
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs4 class="mx-3">
+                          <v-text-field
+                            id="endereco_requerente"
+                            v-model="habilitacao.endereco.lagradouro"
+                            label="Endereço"
+                            box
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs2>
+                          <v-text-field
+                            id="numero_requerente"
+                            v-model="habilitacao.endereco.numero"
+                            box
+                            label="Numero*"
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row pt-3>
+                        <v-flex xs2>
+                          <v-text-field
+                            id="complemento_requerente"
+                            label="Complemento"
+                            v-model="habilitacao.endereco.complemento"
+                            box
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3 class="mx-3">
+                          <v-text-field
+                            id="bairro_requerente"
+                            v-model="habilitacao.endereco.bairro"
+                            label="Bairro"
+                            box
+                            clearable
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3>
+                          <v-autocomplete
+                            id="cidade_requerente"
+                            box
+                            label="Cidade*"
+                            :items="selects.selectCidade"
+                            item-value="value"
+                            item-text="text"
+                            v-model="habilitacao.endereco.cidade"
+                          ></v-autocomplete>
+                        </v-flex>
+                        <v-flex xs2 class="ml-n12">
+                          <v-autocomplete
+                            class="mx-3"  
+                            id="uf_requerente"
+                            label="UF"
+                            :items="selects.selectUF"
+                            item-value="value"
+                            item-text="text"
+                            v-model="habilitacao.endereco.uf"
+                            box
+                          ></v-autocomplete>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout pl-5 pr-5>
+                        <v-divider></v-divider>
+                      </v-layout>
+                      <v-layout row pt-3>
+                        <v-flex xs3>
+                          <v-autocomplete
+                            id="assinante"
+                            box
+                            label="Assinante*"
+                            v-model="habilitacao.assinante"
+                          ></v-autocomplete>
+                        </v-flex>
+                      </v-layout>
+                    </div> 
+                    <div v-if="variaveis.valid == false">
+                      <v-layout row pt-3>
                       <v-flex xs4>
                         <v-text-field
                           id="nome_nubente"
                           label="Nome*"
                           v-model="habilitacao.nome_nubente"
                           append-icon="fa-pen"
+                          disabled
                           box
                           clearable
                         ></v-text-field>
@@ -486,6 +691,7 @@
                           id="nome_de_casado"
                           v-model="habilitacao.nome_de_casado"
                           label="Nome de Casado*"
+                          disabled
                           append-icon="fa-pen"
                           box
                           clearable
@@ -498,14 +704,16 @@
                           v-model="habilitacao.status_primeiro_nubente"
                           value="Hipossuficiente"
                           color="blue"
+                          disabled
                         ></v-checkbox>
                       </v-flex>
-                      <v-flex xs2 class="">
+                      <v-flex xs2>
                         <v-checkbox
                           value="Assinatura a Rogo"
                           v-model="habilitacao.status_primeiro_nubente"
                           label="Assinatura a Rogo"
                           color="blue"
+                          disabled
                         ></v-checkbox>
                       </v-flex>
                     </v-layout>
@@ -517,6 +725,7 @@
                           v-model="habilitacao.proximo_nome_nubente"
                           append-icon="fa-pen"
                           box
+                          disabled
                           clearable
                         ></v-text-field>
                       </v-flex>
@@ -527,6 +736,7 @@
                           label="Nome de Casado*"
                           append-icon="fa-pen"
                           box
+                          disabled
                           clearable
                         ></v-text-field>
                       </v-flex>
@@ -536,6 +746,7 @@
                           v-model="habilitacao.status_segundo_nubente"
                           label="Hipossuficiente"
                           color="blue"
+                          disabled
                         ></v-checkbox>
                       </v-flex>
                       <v-flex xs2>
@@ -543,6 +754,7 @@
                           value="Assinatura a Rogo"
                           v-model="habilitacao.status_segundo_nubente"
                           color="blue"
+                          disabled
                           label="Assinatura a Rogo"
                         ></v-checkbox>
                       </v-flex>
@@ -557,7 +769,7 @@
                     </div>
                     <v-layout row pt-3>
                       <v-flex xs3 >
-                        <v-radio-group v-model="habilitacao.requerente" row>
+                        <v-radio-group disabled v-model="habilitacao.requerente" row>
                           <v-radio color="blue" label="Nubente" value="Nubente"></v-radio>
                           <v-radio color="blue" label="Outra Pessoa" value="Outra Pessoa"></v-radio>
                         </v-radio-group>
@@ -572,6 +784,7 @@
                           :items="habilitacao.nome_nubente"
                           item-value="value"
                           item-text="text"
+                          disabled
                           id="nome_requerente"
                         ></v-autocomplete>
                       </v-flex>
@@ -579,6 +792,7 @@
                         <v-text-field
                           id="cpf_requerente"
                           box
+                          disabled
                           v-model="habilitacao.cpf"
                           mask="###.###.###-##"
                           hint="Apenas Números"
@@ -590,6 +804,7 @@
                           id="cep_requerente"
                           v-model="habilitacao.endereco.cep"
                           box
+                          disabled
                           clearable
                           mask="#####-##"
                           hint="Apenas Números"
@@ -602,6 +817,7 @@
                           v-model="habilitacao.endereco.lagradouro"
                           label="Endereço"
                           box
+                          disabled
                           clearable
                         ></v-text-field>
                       </v-flex>
@@ -610,6 +826,7 @@
                           id="numero_requerente"
                           v-model="habilitacao.endereco.numero"
                           box
+                          disabled
                           label="Numero*"
                           clearable
                         ></v-text-field>
@@ -622,6 +839,7 @@
                           label="Complemento"
                           v-model="habilitacao.endereco.complemento"
                           box
+                          disabled
                           clearable
                         ></v-text-field>
                       </v-flex>
@@ -631,6 +849,7 @@
                           v-model="habilitacao.endereco.bairro"
                           label="Bairro"
                           box
+                          disabled
                           clearable
                         ></v-text-field>
                       </v-flex>
@@ -638,6 +857,7 @@
                         <v-autocomplete
                           id="cidade_requerente"
                           box
+                          disabled
                           label="Cidade*"
                           :items="selects.selectCidade"
                           item-value="value"
@@ -655,31 +875,52 @@
                           item-text="text"
                           v-model="habilitacao.endereco.uf"
                           box
+                          disabled
                         ></v-autocomplete>
                       </v-flex>
                     </v-layout>
                     <v-layout pl-5 pr-5>
                       <v-divider></v-divider>
                     </v-layout>
+                    <v-layout pt-3>
+                      <v-flex xs3>
+                        Arquivos Anexados ({{variaveis.quantidadeAnexo}})
+                      </v-flex>
+                    </v-layout>
+                    <v-layout pt-3>
+                      <v-flex xs3>
+                        <v-icon small >attachment</v-icon> {{anexo}}
+                      </v-flex>
+                    </v-layout>
+                    <v-layout pt-4>
+                      <v-flex xs3>
+                        Nenhum Anexo de Solicitação encontrado.
+                      </v-flex>
+                    </v-layout>
                     <v-layout row pt-3>
                       <v-flex xs3>
                         <v-autocomplete
                           id="assinante"
                           box
+                          disabled
                           label="Assinante*"
                           v-model="habilitacao.assinante"
                         ></v-autocomplete>
                       </v-flex>
                     </v-layout>
+                    </div>
                   </v-tab-item>
                 </v-tabs>
-
                 <v-layout row justify-center class="buttons">
                       <div v-if="variaveis.active < 2">
                         <v-btn dark color="#2934FF" @click="next">PRÓXIMO PASSO</v-btn>
                       </div>
-                      <div v-else>
+                      <div v-if="variaveis.active == 2 && variaveis.valid == true">
                         <v-btn dark color="#32C458" @click="incluir">INCLUIR REGISTRO</v-btn>
+                      </div>
+                      <div v-if="variaveis.valid == false ">
+                        <v-btn dark color="#2934FF" @click="alterarRegistro">ALTERAR REGISTRO</v-btn> 
+                        <v-btn @click="imprimir" flat><v-icon class="px-2" >print</v-icon>IMPRESSÕES</v-btn>
                       </div>
                     </v-layout>
               </v-container>
@@ -875,6 +1116,13 @@ export default {
     },
     incluir() {
       alert("Incluir...");
+      this.variaveis.valid = false;
+    },
+    alterarRegistro(){
+      this.variaveis.valid = true;
+    },
+    imprimir(){
+      alert('imprimindo...')
     }
   }
 };
