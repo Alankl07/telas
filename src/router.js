@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import tela_habilitacaoCasamentoNubentes from '../resources/js/assets/components/tela_habilitacaoCasamentoNubentes.vue'
+import geracao_de_daje from '../resources/js/assets/components/geracao_de_daje.vue'
 
 Vue.use(Router)
 
@@ -9,7 +10,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/tela',
       component: tela_habilitacaoCasamentoNubentes,
     },
   ]
