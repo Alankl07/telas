@@ -4,6 +4,7 @@ import Vue from 'vue'
 import tela_casamento_testemunhas_nubentes from '../resources/js/assets/components/tela_casamento_testemunhas_nubentes.vue'
 import 'vuetify/dist/vuetify.min.css'
 import geracao_de_daje from '../resources/js/assets/components/geracao_de_daje.vue'
+import migracao from '../resources/js/assets/components/migracao.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -13,6 +14,7 @@ Vue.use(Vuetify, {
 Vue.config.productionTip = false
 
 new Vue({
-  render:a => a (tela_casamento_testemunhas_nubentes),
-  render:b => b (geracao_de_daje)
+  //render:a => a (tela_casamento_testemunhas_nubentes),
+  //render:b => b (geracao_de_daje),
+  render:c => c (migracao),
 }).$mount('#app')
