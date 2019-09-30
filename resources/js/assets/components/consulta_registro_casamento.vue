@@ -102,7 +102,7 @@
                   <v-flex xs12>
                     <v-data-table
                       :headers="titulos"
-                      :items="items"
+                      :items="resultado"
                     >
                       <template v-slot:items="props">
                           <td>{{ props.item.termo }}</td>
@@ -130,6 +130,25 @@ export default {
       selects: {
         cartorio: ["134 Cartório de RCPN de Senhor do Bomfim"]
       },
+
+      items: [
+        {
+          text: "Certidões",
+          disabled: true,
+          href: "certidoes"
+        },
+        {
+          text: "Casamento",
+          disabled: false,
+          href: "/casamento"
+        },
+        {
+          text: "Consulta de Registro",
+          disabled: false,
+          href: "/casamento/consulta_registro"
+        },
+      ],
+
       titulos: [
           { text: "Termo", align: "left", sortable: false, value: "termo" },
           { text: "Data Termo", value: "data_termo" },
@@ -138,7 +157,7 @@ export default {
           { text: "Cartório",   value: "cartorio" },
        ],
 
-        items: [
+        resultado: [
           {
             termo: "5658",
             data_termo: "30/09/2019",
