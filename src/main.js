@@ -5,7 +5,8 @@ import tela_casamento_testemunhas_nubentes from '../resources/js/assets/componen
 import 'vuetify/dist/vuetify.min.css'
 import geracao_de_daje from '../resources/js/assets/components/geracao_de_daje.vue'
 import migracao from '../resources/js/assets/components/migracao.vue'
-import gerar_daje_isento from '../resources/js/assets/components/gerar_daje_isento.vue'
+import consulta_registro_casamento from '../resources/js/assets/components/consulta_registro_casamento.vue'
+import teste from '../resources/js/assets/components/teste.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -18,5 +19,7 @@ new Vue({
   //render:a => a (tela_casamento_testemunhas_nubentes),
   //render:b => b (geracao_de_daje),
   //render:c => c (migracao),
-  render:d => d (gerar_daje_isento)
+  //render:d => d (gerar_daje_isento)
+  render:e => e (consulta_registro_casamento)
+  //render: f => f (teste)
 }).$mount('#app')
