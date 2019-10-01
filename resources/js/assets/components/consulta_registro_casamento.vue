@@ -87,33 +87,37 @@
                   <v-flex xs>
                     <v-btn @click="pesquisar(items.termo)" dark color="#2934FF">PESQUISAR</v-btn>
                   </v-flex>
-                  <v-felx class="text-xs-right">
-                    <v-btn @click="nova_habilitacao" dark color="#32C458">+ NOVA HABILITAÇÃO</v-btn>
+                  <div v-if="selects.pesquisa">
+                    <v-felx class="text-xs-right">
+                      <v-btn @click="nova_habilitacao" dark color="#32C458">+ NOVA HABILITAÇÃO</v-btn>
                   </v-felx>
+                  </div>
                 </v-layout>
-                <v-layout row justify-center>
+                <div v-if="selects.pesquisa">
+                  <v-layout row justify-center>
                   <v-div class="text-xs-center pt-3">
                     <v-card-text class="px-0">
                       <span class="subtitulo">Resultados</span>
                     </v-card-text>
                   </v-div>
-                </v-layout>
-                <v-layout>
-                  <v-flex xs12>
-                    <v-data-table
-                      :headers="titulos"
-                      :items="resultado"
-                    >
-                      <template v-slot:items="props">
-                          <td>{{ props.item.termo }}</td>
-                          <td>{{ props.item.data_termo }}</td>
-                          <td>{{ props.item.nome }}</td>
-                          <td>{{ props.item.pais }}</td>
-                          <td>{{ props.item.cartorio }}</td>
-                      </template>
-                    </v-data-table>
-                  </v-flex>
-                </v-layout>
+                  </v-layout>
+                  <v-layout>
+                    <v-flex xs12>
+                      <v-data-table
+                        :headers="titulos"
+                        :items="resultado"
+                      >
+                        <template v-slot:items="props">
+                            <td>{{ props.item.termo }}</td>
+                            <td>{{ props.item.data_termo }}</td>
+                            <td>{{ props.item.nome }}</td>
+                            <td>{{ props.item.pais }}</td>
+                            <td>{{ props.item.cartorio }}</td>
+                        </template>
+                      </v-data-table>
+                    </v-flex>
+                  </v-layout>
+                </div>
               </v-container>
             </v-form>
           </template>
@@ -128,7 +132,8 @@ export default {
   data() {
     return {
       selects: {
-        cartorio: ["134 Cartório de RCPN de Senhor do Bomfim"]
+        cartorio: ["134 Cartório de RCPN de Senhor do Bomfim"],
+        pesquisa: false
       },
 
       items: [
@@ -172,7 +177,7 @@ export default {
 
   methods:{
     pesquisar(){
-
+      this.selects.pesquisa = true
     },
 
     nova_habilitacao(){

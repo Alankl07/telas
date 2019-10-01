@@ -6,6 +6,7 @@ import 'vuetify/dist/vuetify.min.css'
 import geracao_de_daje from '../resources/js/assets/components/geracao_de_daje.vue'
 import migracao from '../resources/js/assets/components/migracao.vue'
 import consulta_registro_casamento from '../resources/js/assets/components/consulta_registro_casamento.vue'
+import consultar_daje_habilitacao from '../resources/js/assets/components/consultar_daje_habilitacao.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -20,4 +21,5 @@ new Vue({
   //render:c => c (migracao),
   //render:d => d (gerar_daje_isento)
   render:e => e (consulta_registro_casamento)
+  //render: f => f (consultar_daje_habilitacao)
 }).$mount('#app')
