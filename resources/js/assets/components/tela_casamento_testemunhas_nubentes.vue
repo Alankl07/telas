@@ -30,7 +30,7 @@
                 <v-tabs v-model="variaveis.active" color="white" slider-color="#2934FF">
                   <v-tab>CASAMENTO</v-tab>
                   <v-tab>TESTEMUNHA</v-tab>
-                  <v-tab>NUBENTES</v-tab>
+                  <v-tab @click="dialogo">NUBENTES</v-tab>
                   <v-tab-item>
                     <v-layout row pt-3>
                       <v-flex xs2>  
@@ -468,6 +468,7 @@
                     </v-layout>
                     </div>
                   </v-tab-item>
+                  
 
                   <v-tab-item>
                     <div v-if="variaveis.valid == true">
@@ -911,11 +912,45 @@
                     </div>
                   </v-tab-item>
                 </v-tabs>
+
+                <!-- Modal Editar cadastro ou pesquisar pessoa -->
+
+                <div  v-if="variaveis.dialog && variaveis.valid == false">
+                  <v-layout row pt-5 >
+                    <v-dialog
+                      v-model="variaveis.dialog "
+                      persistent
+                      max-width="600"
+                    >
+                      <v-card>
+                        <v-card-text class="text-xs-center pt-5">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                          ut aliquip ex ea commodo consequat.
+                        </v-card-text>
+                        <v-card-action>
+                          <div class="px-4">
+                            <v-layout  pt-5 justify-center class="buttons">
+                              <v-btn color="#2934FF" dark @click="editar" >
+                              <v-icon class="px-2" small>
+                                fa-pen
+                              </v-icon>EDITAR CADASTRO</v-btn>
+                              <v-btn color="#2934FF" flat @click="pesquisar_pessoa" > <v-icon class="px-2" small>fa-search</v-icon> 
+                              PESQUISAR PESSOA</v-btn>
+                            </v-layout>
+                          </div>
+                        </v-card-action>
+                    </v-card>
+                    </v-dialog>
+                  </v-layout>
+                </div>
+
                 <v-layout row justify-center class="buttons">
-                      <div v-if="variaveis.active < 2">
+                      <div v-if="variaveis.active < 2 && variaveis.valid">
                         <v-btn dark color="#2934FF" @click="next">PRÓXIMO PASSO</v-btn>
                       </div>
-                      <div v-if="variaveis.active == 2 && variaveis.valid == true">
+                      <div v-if="variaveis.active == 2 && variaveis.valid">
                         <v-btn dark color="#32C458" @click="incluir">INCLUIR REGISTRO</v-btn>
                       </div>
                       <div v-if="variaveis.valid == false ">
@@ -939,7 +974,8 @@ export default {
       //Variáveis
       variaveis: {
         valid: false,
-        active: 0
+        active: 0,
+        dialog: false
       },
 
       daje: {
@@ -1013,6 +1049,7 @@ export default {
       },
 
       selects: {
+
         selectTipoCasamento: [
           {
             value: "civil",
@@ -1022,6 +1059,7 @@ export default {
             value: "relgioso",
             text: "Religioso"
           },
+
         ],
 
         selectRegimeBens:[
@@ -1117,13 +1155,27 @@ export default {
     incluir() {
       alert("Incluir...");
       this.variaveis.valid = false;
+      this.variaveis.active = 0;
+      this.variaveis.dialog = false;
     },
     alterarRegistro(){
       this.variaveis.valid = true;
     },
     imprimir(){
-      alert('imprimindo...')
+      alert("Imprimindo...")
+    },
+    editar(){
+      this.variaveis.dialog = false
+      this.variaveis.valid = true
+    },
+    dialogo(){
+      this.variaveis.dialog = true
+    },
+    pesquisar_pessoa(){
+      alert('Pesquisando...')
+      this.variaveis.dialog = false
     }
+
   }
 };
 </script>
@@ -1131,6 +1183,7 @@ export default {
 <style scoped>
 .titulos {
   font-size: 25px !important;
+  color: black;
 }
 .subtitulos{
   font-size: 16px !important;

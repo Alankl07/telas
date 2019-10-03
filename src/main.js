@@ -16,10 +16,10 @@ Vue.use(Vuetify, {
 Vue.config.productionTip = false
 
 new Vue({
-  //render:a => a (tela_casamento_testemunhas_nubentes),
-  //render:b => b (geracao_de_daje),
-  //render:c => c (migracao),
-  //render:d => d (gerar_daje_isento)
-  render:e => e (consulta_registro_casamento)
+  render: a => a (tela_casamento_testemunhas_nubentes),
+  //render: b => b (geracao_de_daje),
+  //render: c => c (migracao),
+  //render: d => d (gerar_daje_isento)
+  //render: e => e (consulta_registro_casamento)
   //render: f => f (consultar_daje_habilitacao)
 }).$mount('#app')
