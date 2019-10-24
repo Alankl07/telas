@@ -10,6 +10,10 @@ import consultar_daje_habilitacao from '../resources/js/assets/components/consul
 import consulta_registro_atos from '../resources/js/assets/components/livro_E/consulta_registro_atos'
 import registro_opcao_nacionalidade from '../resources/js/assets/components/livro_E/registro_opcao_nacionalidade.vue'
 import registro_traslado_nascimento from '../resources/js/assets/components/livro_E/registro_traslado_nascimento.vue'
+import cancelar_selo from '../resources/js/assets/components/daje/cancelar_selo.vue'
+import desassociar_daje from '../resources/js/assets/components/daje/desassociar_daje.vue'
+import desassociar from '../resources/js/assets/components/daje/desassociar.vue'
+import desbloquear_daje from '../resources/js/assets/components/daje/desbloquear_daje.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -25,7 +29,10 @@ new Vue({
   //render: d => d (gerar_daje_isento)
   //render: e => e (consulta_registro_casamento)
   //render: f => f (consultar_daje_habilitacao)
-  render : g => g (consulta_registro_atos)
+  //render : g => g (consulta_registro_atos)
   //render : h => h (registro_opcao_nacionalidade)
   //render : h => h (registro_traslado_nascimento)
+  render : i => i (cancelar_selo)
+  //render : i => i (desassociar)
+  //render : i => i (desbloquear_daje)
 }).$mount('#app')
