@@ -96,7 +96,7 @@ export default {
         _desassociar(){
             if(this.$refs.form.validate()){
                 alert('ok')
-                let response = this.$https.post(
+                let response = this.$http.post(
                     'servicos/tj/dajes/desassociar', this.desassociar
                 ).then(function(value){
                 }).catch(function(erro){

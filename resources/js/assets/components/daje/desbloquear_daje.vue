@@ -77,7 +77,7 @@ export default {
     _desbloquear() {
       if (this.$refs.form.validate()) {
         alert("ok");
-        let response = this.$https
+        let response = this.$http
           .post("servicos/tj/dajes/desbloquear", this.desbloquear)
           .then(function(value) {})
           .catch(function(erro) {});
