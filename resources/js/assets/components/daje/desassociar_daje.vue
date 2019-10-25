@@ -2,14 +2,14 @@
     <div>
         <v-breadcrumbs :items="items">
             <template v-slot:divider>
-                <v-icon>chevron-right</v-icon>
+                <v-icon>chevron_right</v-icon>
             </template>
         </v-breadcrumbs>
 
         <v-card>
             <div class="text-xs-center pt-3">
                 <v-card-text class="px-0">
-                <span class="titulo">Desassociar DAJE</span>
+                <span class="titulos">Desassociar DAJE</span>
                 </v-card-text>
             </div>
 
@@ -23,6 +23,7 @@
                                         <v-text-field
                                             id="cartorio_emissor"
                                             label="Cartório Emissor*"
+                                            :rules="verificacao"
                                             box
                                             v-model="desassociar.cartorio_emissor"
                                         ></v-text-field>
@@ -31,6 +32,7 @@
                                         <v-text-field
                                             id="serie"
                                             label="Série*"
+                                            :rules="verificacao"
                                             box
                                             v-model="desassociar.serie"
                                         ></v-text-field>
@@ -39,6 +41,7 @@
                                         <v-text-field
                                             id="numero_daje"
                                             label="Nº DAJE*"
+                                            :rules="verificacao"
                                             box
                                             v-model="desassociar.numero_daje"
                                         ></v-text-field>
@@ -79,6 +82,8 @@ export default {
                 },
             ],
 
+            verificacao:[verificar => !!verificar || "Campo Obrigatório"],
+
             desassociar:{
                 cartorio_emissor: null,
                 serie: null,
@@ -90,16 +95,14 @@ export default {
     methods:{
         cancelar(){
             if(this.$refs.form.validate()){
-                let response = this.$https.get('cancelar' + this.filtro(this.cancelar),{
-                    params:{
-                        cancelar: this.cancelar.cancelar
-                    }   
-                }).then(function(value){
-                if(value.data){
-                }
-            });
+                let response = this.$https.post(
+                    'servicos/tj/dajes/desassociar', this.desassociar
+                ).then(function(value){
+                }).catch(function(erro){
+                    
+                })
+            }
         }
     },
-    }
 }
 </script>
