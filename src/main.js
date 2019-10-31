@@ -14,6 +14,7 @@ import cancelar_selo from '../resources/js/assets/components/daje/cancelar_selo.
 import desassociar_daje from '../resources/js/assets/components/daje/desassociar_daje.vue'
 import desassociar from '../resources/js/assets/components/daje/desassociar.vue'
 import desbloquear_daje from '../resources/js/assets/components/daje/desbloquear_daje.vue'
+import registro_contrato_distrato_uniao_estavel from '../resources/js/assets/components/livro_E/registro_contrato_distrato_uniao_estavel.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -33,7 +34,8 @@ new Vue({
   //render : h => h (registro_opcao_nacionalidade)
   //render : h => h (registro_traslado_nascimento)
   //render : i => i (cancelar_selo)
-  //render : i => i (desassociar)
-  render : i => i (desassociar_daje)
-  //render : i => i (desbloquear_daje)
+  //render : j => j (desassociar)
+  //render : l => l (desassociar_daje)
+  //render : m => m (desbloquear_daje)
+  render : n => n (registro_contrato_distrato_uniao_estavel)
 }).$mount('#app')
