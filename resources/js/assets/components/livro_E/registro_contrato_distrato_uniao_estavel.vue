@@ -16,7 +16,7 @@
       <v-layout row>
         <v-flex xs12 sm12>
           <template>
-            <v-form ref="form">
+            <v-form ref="form" v-model="variaveis.valid">
               <v-container pl-5 pr-5>
                 <v-tabs v-model="variaveis.active" color="white" slider-color="#2934FF">
                   <v-tab>DADOS DO CASAMENTO</v-tab>
