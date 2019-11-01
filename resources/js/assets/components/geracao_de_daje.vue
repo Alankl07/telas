@@ -110,10 +110,10 @@
                   </v-flex>
                   <v-flex xs5>
                     <v-text-field
-                      id="lagradouro"
+                      id="logradouro"
                       label="Local"
                       box
-                      v-model="nubente_1.lagradouro"
+                      v-model="nubente_1.logradouro"
                     ></v-text-field>
                   </v-flex>
                   <v-flex xs2>
@@ -235,9 +235,9 @@
                     </v-flex>
                     <v-flex xs5 class="px-3">
                       <v-text-field
-                        id="lagradouro"
-                        label="Lagradouro"
-                        v-model="nubente_2.lagradouro"
+                        id="logradouro"
+                        label="Logradouro"
+                        v-model="nubente_2.logradouro"
                         box
                       ></v-text-field>
                     </v-flex>
@@ -292,9 +292,9 @@
                     </v-flex>
                     <v-flex xs5 class="px-3">
                       <v-text-field
-                        id="lagradouro"
-                        label="Lagradouro"
-                        v-model="nubente_1.lagradouro"
+                        id="logradouro"
+                        label="Logradouro"
+                        v-model="nubente_1.logradouro"
                         box
                       ></v-text-field>
                     </v-flex>
@@ -393,7 +393,7 @@ export default {
           cep: null,
           uf: null,
           cidade: null,
-          lagradouro: null,
+          logradouro: null,
           numero: null,
           complemento: null,
         }
@@ -408,7 +408,7 @@ export default {
           cep: null,
           uf: null,
           cidade: null,
-          lagradouro: null,
+          logradouro: null,
           numero: null,
           complemento: null,
         }

@@ -135,10 +135,10 @@
                       <v-layout row pt-3>
                         <v-flex xs4>
                           <v-text-field
-                            id="lagradouro"
+                            id="logradouro"
                             label="Endereço"
                             box
-                            v-model="optante.endereco.lagradouro"
+                            v-model="optante.endereco.logradouro"
                           ></v-text-field>
                         </v-flex>
                         <v-flex xs2 class="px-3">
@@ -442,7 +442,7 @@ export default {
               pais: null,
               estado: null,
               cidade: null,
-              lagradouro: null,
+              logradouro: null,
               numero: null,
               complemento: null,
               cep: null

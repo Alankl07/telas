@@ -534,10 +534,10 @@
                           </v-flex>
                           <v-flex xs4 class="px-3">
                             <v-text-field
-                              id="lagradouro"
+                              id="logradouro"
                               label="Endereço"
                               box
-                              v-model="testemunha.endereco.lagradouro"
+                              v-model="testemunha.endereco.logradouro"
                             ></v-text-field>
                           </v-flex>
                           <v-flex xs2>
@@ -659,10 +659,10 @@
                           </v-flex>
                           <v-flex xs4 class="px-3">
                             <v-text-field
-                              id="lagradouro"
+                              id="logradouro"
                               label="Endereço"
                               box
-                              v-model="testemunha.endereco.lagradouro"
+                              v-model="testemunha.endereco.logradouro"
                             ></v-text-field>
                           </v-flex>
                           <v-flex xs2>
@@ -785,10 +785,10 @@
                             </v-flex>
                             <v-flex xs4 class="px-3">
                               <v-text-field
-                                id="lagradouro"
+                                id="lagrodouro"
                                 label="Endereço"
                                 box
-                                v-model="testemunha.endereco.lagradouro"
+                                v-model="testemunha.endereco.lagrodouro"
                               ></v-text-field>
                             </v-flex>
                             <v-flex xs2>
@@ -938,11 +938,11 @@
                           </v-flex>
                           <v-flex xs4 class="px-3">
                             <v-text-field
-                              id="lagradouro"
+                              id="logradouro"
                               label="Endereço"
                               box
                               disabled
-                              v-model="testemunha.endereco.lagradouro"
+                              v-model="testemunha.endereco.logradouro"
                             ></v-text-field>
                           </v-flex>
                           <v-flex xs2>
@@ -1076,11 +1076,11 @@
                           </v-flex>
                           <v-flex xs4 class="px-3">
                             <v-text-field
-                              id="lagradouro"
+                              id="logradouro"
                               label="Endereço"
                               box
                               disabled
-                              v-model="testemunha.endereco.lagradouro"
+                              v-model="testemunha.endereco.logradouro"
                             ></v-text-field>
                           </v-flex>
                           <v-flex xs2>
@@ -1215,11 +1215,11 @@
                             </v-flex>
                             <v-flex xs4 class="px-3">
                               <v-text-field
-                                id="lagradouro"
+                                id="logradouro"
                                 label="Endereço"
                                 box
                                 disabled
-                                v-model="testemunha.endereco.lagradouro"
+                                v-model="testemunha.endereco.logradouro"
                               ></v-text-field>
                             </v-flex>
                             <v-flex xs2>
@@ -1381,7 +1381,7 @@ export default {
             cep: null,
             cidade: null,
             uf: null,
-            lagradouro: null,
+            logradouro: null,
             numero: null,
             complemento: null,
             nacionalidade: null,

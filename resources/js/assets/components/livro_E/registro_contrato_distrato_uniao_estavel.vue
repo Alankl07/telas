@@ -225,7 +225,7 @@
                             id="endereco_1"
                             label="Endereço"
                             box
-                            v-model="convivente.endereco.lagradouro"
+                            v-model="convivente.endereco.logradouro"
                           ></v-text-field>
                         </v-flex>
                         <v-flex xs1 class="px-3">
@@ -386,7 +386,7 @@
                             id="endereco_2"
                             label="Endereço"
                             box
-                            v-model="convivente.endereco.lagradouro"
+                            v-model="convivente.endereco.logradouro"
                           ></v-text-field>
                         </v-flex>
                         <v-flex xs1 class="px-3">
@@ -626,7 +626,7 @@ export default {
               país_nascimento: null,
               estado: null,
               cidade: null,
-              lagradouro: null,
+              logradouro: null,
               numero: null,
               complemento: null,
               bairro: null,
@@ -646,7 +646,7 @@ export default {
               país_nascimento: null,
               estado: null,
               cidade: null,
-              lagradouro: null,
+              logradouro: null,
               numero: null,
               complemento: null,
               bairro: null,

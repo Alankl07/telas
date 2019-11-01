@@ -445,7 +445,7 @@
                         <v-text-field
                           id="local"
                           label="Local"
-                          v-model="testemunha.endereco.lagradouro"
+                          v-model="testemunha.endereco.logradouro"
                           box
                         ></v-text-field>
                       </v-flex>
@@ -601,7 +601,7 @@
                         <v-flex xs4 class="mx-3">
                           <v-text-field
                             id="endereco_requerente"
-                            v-model="habilitacao.endereco.lagradouro"
+                            v-model="habilitacao.endereco.logradouro"
                             label="Endereço"
                             box
                             clearable
@@ -815,7 +815,7 @@
                       <v-flex xs4 class="mx-3">
                         <v-text-field
                           id="endereco_requerente"
-                          v-model="habilitacao.endereco.lagradouro"
+                          v-model="habilitacao.endereco.logradouro"
                           label="Endereço"
                           box
                           disabled
@@ -1038,7 +1038,7 @@ export default {
         cpf: null,
         endereco:{
           cep: null,
-          lagradouro: null,
+          logradouro: null,
           numero: null,
           complemento: null,
           bairro: null,
