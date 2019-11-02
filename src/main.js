@@ -16,6 +16,7 @@ import desassociar from '../resources/js/assets/components/daje/desassociar.vue'
 import desbloquear_daje from '../resources/js/assets/components/daje/desbloquear_daje.vue'
 import registro_contrato_distrato_uniao_estavel from '../resources/js/assets/components/livro_E/registro_contrato_distrato_uniao_estavel.vue'
 import registro_sentenca_interdicao from '../resources/js/assets/components/livro_E/registro_sentenca_interdicao.vue'
+import registro_traslado_obito from '../resources/js/assets/components/livro_E/registro_traslado_obito.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -39,5 +40,6 @@ new Vue({
   //render : l => l (desassociar_daje)
   //render : m => m (desbloquear_daje)
   //render : n => n (registro_contrato_distrato_uniao_estavel)
-  render : o => o (registro_sentenca_interdicao)
+  //render : o => o (registro_sentenca_interdicao)
+  render : p => p (registro_traslado_obito)
 }).$mount('#app')
