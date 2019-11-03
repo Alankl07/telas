@@ -2,7 +2,7 @@ export default {
   data() {
     return {
       variaveis: {
-        active: false,
+        active: 0,
         valid: false,
         loading: false
       },
