@@ -20,6 +20,7 @@ import registro_traslado_obito from '../resources/js/assets/components/livro_E/r
 import registro_traslado_casamento from '../resources/js/assets/components/livro_E/registro_traslado_casamento.vue'
 import registro_nascimento_estrangeiro from '../resources/js/assets/components/livro_E/registro_nascimento_estrangeiro.vue'
 import registro_sentenca_emancipacao from '../resources/js/assets/components/livro_E/registro_sentenca_emancipacao.vue'
+import registro_sentenca_ausencia from '../resources/js/assets/components/livro_E/registro_sentenca_ausencia.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -37,9 +38,9 @@ new Vue({
   //render: f => f (consultar_daje_habilitacao)
   //render : g => g (consulta_registro_atos)
   //render : h => h (registro_opcao_nacionalidade)
-  //render : h => h (registro_traslado_nascimento)
-  //render : i => i (cancelar_selo)
+  //render : i => i (registro_traslado_nascimento)
   //render : j => j (desassociar)
+  //render : k => k (cancelar_selo)
   //render : l => l (desassociar_daje)
   //render : m => m (desbloquear_daje)
   //render : n => n (registro_contrato_distrato_uniao_estavel)
@@ -47,5 +48,6 @@ new Vue({
   //render : p => p (registro_traslado_obito)
   //render : q => q (registro_traslado_casamento)
   //render : r => r (registro_nascimento_estrangeiro)
-  render: s => s (registro_sentenca_emancipacao)
+  //render: s => s (registro_sentenca_emancipacao)
+  render: t => t (registro_sentenca_ausencia)
 }).$mount('#app')
