@@ -8,15 +8,15 @@
 
     <v-card>
       <div class="text-xs-center pt-3">
-        <v-card-text>
-          <span class="titulos">Registro de Contrato e de Distratos de União Estável</span>
+        <v-card-text class="px-0">
+          <span class="titulos">Registro de Sentença de Emancipação</span>
         </v-card-text>
       </div>
 
       <v-layout row>
         <v-flex xs12 sm12>
           <template>
-            <v-form ref="form" v-model="variaveis.valid">
+            <v-form ref="form" v-model="variaveis.valid" lazy-validation>
               <v-container pl-5 pr-5>
                 <v-tabs v-model="variaveis.active" color="white" slider-color="#2934FF">
                   <v-tab>DADOS DO CASAMENTO</v-tab>
@@ -29,73 +29,125 @@
                   <!--TELA DADOS DO CASAMENTO-->
 
                   <v-tab-item>
-                    <v-layout row pt-3>
-                      <v-flex xs2>
-                        <v-autocomplete
-                          id="tipo"
-                          label="Tipo*"
-                          box
-                          :items="selects.tipo"
-                          item-value="value"
-                          item-text="text"
-                          :rules="verificacao"
-                          v-model="registro.tipo"
-                        ></v-autocomplete>
-                      </v-flex>
-                      <v-felx xs2 class="px-3">
-                        <v-text-field
-                          id="data"
-                          label="Data*"
-                          box
-                          prepend-inner-icon="event"
-                          hind="Apenas Números"
-                          mask="##/##/####"
-                          :rules="verificacao"
-                          v-model="registro.data"
-                        ></v-text-field>
-                      </v-felx>
-                      <v-flex xs3>
-                        <v-autocomplete
-                          id="regime_bens"
-                          label="Regime de Bens*"
-                          box
-                          :items="selects.regime_bens"
-                          item-value="value"
-                          item-text="text"
-                          :rules="verificacao"
-                          v-model="registro.regime_bens"
-                        ></v-autocomplete>
-                      </v-flex>
-                    </v-layout>
-                    <v-layout row pt-3>
-                      <v-flex xs6>
-                        <v-text-field
-                          id="tabeliao"
-                          label="Tabelião"
-                          box
-                          v-model="registro.tabeliao"
-                        ></v-text-field>
-                      </v-flex>
-                      <v-flex xs6 class="pl-3">
-                        <v-text-field
-                          id="tabelionato"
-                          label="Tabelionato"
-                          box
-                          v-model="registro.tabelionato"
-                        ></v-text-field>
-                      </v-flex>
-                    </v-layout>
-                    <v-layout row pt-3>
-                      <v-flex xs2>
-                        <v-text-field id="livro" label="Livro" box v-model="registro.livro"></v-text-field>
-                      </v-flex>
-                      <v-flex xs2 class="px-3">
-                        <v-text-field id="folha" label="Folha" box v-model="registro.folha"></v-text-field>
-                      </v-flex>
-                      <v-flex xs2>
-                        <v-text-field id="termo" label="Termo" box v-model="registro.termo"></v-text-field>
-                      </v-flex>
-                    </v-layout>
+                    <div v-for="(dados, i) in registro.dados_casamento" :key="i">
+                      <v-layout row pt-3>
+                        <v-flex xs3>
+                          <v-autocomplete
+                            id="tipo"
+                            label="Tipo*"
+                            box
+                            :rules="verificacao"
+                            :items="selects.tipo"
+                            item-value="value"
+                            item-text="text"
+                            v-model="dados.tipo"
+                          ></v-autocomplete>
+                        </v-flex>
+                        <v-flex xs3 class="px-3">
+                          <v-text-field
+                            id="data"
+                            label="Data*"
+                            box
+                            :rules="verificacao"
+                            prepend-inner-icon="event"
+                            hint="Apenas Números"
+                            mask="##/##/####"
+                            v-model="dados.data"
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3>
+                          <v-text-field
+                            id="local"
+                            label="Local*"
+                            box
+                            :rules="verificacao"
+                            v-model="dados.local"
+                          ></v-text-field>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row pt-3>
+                        <v-flex xs5>
+                          <v-text-field
+                            id="celebrante"
+                            label="Celebrante(Padre/Juiz)"
+                            box
+                            v-model="dados.celebrante"
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3 class="pl-3">
+                          <v-autocomplete
+                            id="regime_bens"
+                            label="Regime de Bens*"
+                            box
+                            :rules="verificacao"
+                            :items="selects.regime_bens"
+                            item-value="value"
+                            item-text="text"
+                            v-model="dados.regime_bens"
+                          ></v-autocomplete>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row pt-3>
+                        <v-flex xs3>
+                          <v-text-field
+                            id="data_mandato"
+                            label="Data Mandato*"
+                            box
+                            :rules="verificacao"
+                            prepend-inner-icon="event"
+                            hint="Apenas Números"
+                            mask="##/##/####"
+                            v-model="dados.data_mandato"
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3 class="px-3">
+                          <v-text-field
+                            id="data_transito_jugado"
+                            label="Data do Trânsito Julgado*"
+                            box
+                            :rules="verificacao"
+                            prepend-inner-icon="event"
+                            hint="Apenas Números"
+                            mask="##/##/####"
+                            v-model="dados.data_transito_jugado"
+                          ></v-text-field>
+                        </v-flex>
+                        <v-flex xs4>
+                            <v-text-field
+                                id="processado_juizo"
+                                label="Processado no Juízo"
+                                box
+                                v-model="dados.processado_juizo"
+                            ></v-text-field>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row pt-3>
+                          <v-flex xs3>
+                              <v-text-field
+                                id="juiz_autor_mandato"
+                                label="Juiz Autor do Mandato"
+                                box
+                                v-model="dados.juiz_autor_mandato"
+                              ></v-text-field>
+                          </v-flex>
+                          <v-flex xs3 class="px-3">
+                              <v-text-field
+                                id="juiz_proderiu_senteca"
+                                label="Juiz que Proferiu a Senteça"
+                                box
+                                v-model="dados.juiz_proderiu_senteca"
+                              ></v-text-field>
+                          </v-flex>
+                          <v-flex xs4>
+                              <v-text-field
+                                id="autos"
+                                label="Autos"
+                                box
+                                v-model="dados.autos"
+                              ></v-text-field>
+                          </v-flex>
+                      </v-layout>
+                    </div>
                   </v-tab-item>
 
                   <!--TELA CONVIVENTE-->
@@ -419,9 +471,9 @@
                           <v-text-field
                             id="cep_2"
                             label="CEP"
+                            box
                             hint="Apenas Números"
                             mask="#####-###"
-                            box
                             v-model="convivente.endereco.cep"
                           ></v-text-field>
                         </v-flex>
@@ -578,151 +630,4 @@
 </template>
 
 
-<script>
-export default {
-  data() {
-    return {
-      variaveis: {
-        active: 0,
-        loading: false
-      },
-
-      selects: {
-        tipo: ["Contrato"],
-        regime_bens: [
-          "Aquestos",
-          "Comunhão Parcial de Bens",
-          "Comunhão Total/Universal de Bens",
-          "Não Especificado",
-          "Separação Total"
-        ],
-        profissao: ["Arquiteto"],
-        país: ["Brasil", "Angola"],
-        estado: ["Belas", "Bahia"],
-        cidade: ["Feira de Santana", "Luanda"],
-        uf: ["BA"]
-      },
-
-      verificacao: [verificar => !!verificar || "Campo Obrigatório"],
-
-      registro: {
-        dados_casamento: [
-          {
-            tipo: null,
-            data: null,
-            regime_bens: null,
-            tebeliao: null,
-            tabelionato: null,
-            livro: null,
-            folha: null,
-            termo: null
-          }
-        ],
-
-        convivente_1: [
-          {
-            nome: null,
-            profissao: null,
-            nascimento: null,
-            nome_pai: null,
-            nome_mae: null,
-            endereco: {
-              país_nascimento: null,
-              estado: null,
-              cidade: null,
-              logradouro: null,
-              numero: null,
-              complemento: null,
-              bairro: null,
-              cep: null
-            }
-          }
-        ],
-
-        convivente_2: [
-          {
-            nome: null,
-            profissao: null,
-            nascimento: null,
-            nome_pai: null,
-            nome_mae: null,
-            endereco: {
-              país_nascimento: null,
-              estado: null,
-              cidade: null,
-              logradouro: null,
-              numero: null,
-              complemento: null,
-              bairro: null,
-              cep: null
-            }
-          }
-        ],
-
-        averbacoes: [
-          {
-            texto_averbacao: null,
-            historico_averbacoes: null
-          }
-        ],
-
-        observações: null,
-
-        comunicacao: [
-          {
-            documento_anterior: null,
-            termo: null,
-            livro: null,
-            folha: null,
-            comarca: null,
-            uf: null,
-            cidade: null
-          }
-        ],
-
-        imprimir: [
-          {
-            assinante: null,
-            cidade: null
-          }
-        ]
-      }
-    };
-  },
-
-  methods: {
-    next() {
-      const active = parseInt(this.variaveis.active);
-      this.variaveis.active = 5 ? active + 1 : active;
-    },
-
-    imprimir() {
-      let self = this;
-      if (this.$refs.form.validate()) {
-        alert("imprimindo...");
-        this.variaveis.loading = true;
-        this.$http
-        .post("servicos/tj/registro/....", this.registro)
-        .then(function(value) {
-          console.log(value);
-          if (value.data.erro) {
-            self.variaveis.loading = false;
-          } else {
-            alert("Sucesso");
-            self.variaveis.loading = false;
-          }
-        })
-        .catch(function(erro) {
-          alert(erro);
-          self.variaveis.loading = false;
-        });
-      }else{
-        alert("Campo Obrigatório em Branco")
-      }
-    },
-  }
-};
-</script>
-
-
-
+<script src="../../../assets/scripts/livro_e/registro_sentenca_emancipacao.js"></script>

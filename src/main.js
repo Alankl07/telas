@@ -19,6 +19,7 @@ import registro_sentenca_interdicao from '../resources/js/assets/components/livr
 import registro_traslado_obito from '../resources/js/assets/components/livro_E/registro_traslado_obito.vue'
 import registro_traslado_casamento from '../resources/js/assets/components/livro_E/registro_traslado_casamento.vue'
 import registro_nascimento_estrangeiro from '../resources/js/assets/components/livro_E/registro_nascimento_estrangeiro.vue'
+import registro_sentenca_emancipacao from '../resources/js/assets/components/livro_E/registro_sentenca_emancipacao.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -45,5 +46,6 @@ new Vue({
   //render : o => o (registro_sentenca_interdicao)
   //render : p => p (registro_traslado_obito)
   //render : q => q (registro_traslado_casamento)
-  render : r => r (registro_nascimento_estrangeiro)
+  //render : r => r (registro_nascimento_estrangeiro)
+  render: s => s (registro_sentenca_emancipacao)
 }).$mount('#app')
