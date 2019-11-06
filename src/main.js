@@ -21,6 +21,7 @@ import registro_traslado_casamento from '../resources/js/assets/components/livro
 import registro_nascimento_estrangeiro from '../resources/js/assets/components/livro_E/registro_nascimento_estrangeiro.vue'
 import registro_sentenca_emancipacao from '../resources/js/assets/components/livro_E/registro_sentenca_emancipacao.vue'
 import registro_sentenca_ausencia from '../resources/js/assets/components/livro_E/registro_sentenca_ausencia.vue'
+import registro_sentenca_divorcio from '../resources/js/assets/components/livro_E/registro_sentenca_divorcio.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -48,6 +49,7 @@ new Vue({
   //render : p => p (registro_traslado_obito)
   //render : q => q (registro_traslado_casamento)
   //render : r => r (registro_nascimento_estrangeiro)
-  //render: s => s (registro_sentenca_emancipacao)
-  render: t => t (registro_sentenca_ausencia)
+  //render : s => s (registro_sentenca_emancipacao)
+  //render : t => t (registro_sentenca_ausencia)
+  render : u => u (registro_sentenca_divorcio)
 }).$mount('#app')
